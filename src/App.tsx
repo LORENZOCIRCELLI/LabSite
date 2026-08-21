@@ -795,25 +795,25 @@ export default function Home() {
           GLOBAL STYLE
       ====================================================== */}
 
-      <style jsx global>{`
-        html {
-          scroll-behavior: smooth;
-        }
+    <style>{`
+      html {
+        scroll-behavior: smooth;
+      }
 
-        body {
-          margin: 0;
-          background: #f7f7f5;
-        }
+      body {
+        margin: 0;
+        background: #f7f7f5;
+      }
 
-        ::selection {
-          background: #111;
-          color: white;
-        }
+      ::selection {
+        background: #111;
+        color: white;
+      }
 
-        a {
-          text-decoration: none;
-        }
-      `}</style>
+      a {
+        text-decoration: none;
+      }
+    `}</style>
     </main>
   );
 }
