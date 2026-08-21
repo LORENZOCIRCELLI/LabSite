@@ -1,352 +1,819 @@
-import posts from "./data/posts.json";
-import type { Post } from "./types" ;
-import PostCard from "./components/PostCard";
+"use client";
 
-export default function App() {
-  const typedPosts = posts as Post[];
-  const latestPosts = typedPosts.slice(-3);
+import { useState } from "react";
+
+const researchAreas = [
+  {
+    number: "01",
+    title: "Inteligência Artificial",
+    description:
+      "Aprendizado de máquina, redes neurais e métodos computacionais aplicados a problemas científicos e tecnológicos.",
+  },
+  {
+    number: "02",
+    title: "Computação de Alto Desempenho",
+    description:
+      "Computação paralela, GPU, otimização e desenvolvimento de soluções para processamento científico em larga escala.",
+  },
+  {
+    number: "03",
+    title: "FPGA & Edge AI",
+    description:
+      "Aceleração de algoritmos e desenvolvimento de sistemas inteligentes de baixo consumo e processamento na borda.",
+  },
+  {
+    number: "04",
+    title: "Robótica e Automação",
+    description:
+      "Sistemas autônomos, controle, percepção e integração entre inteligência artificial e sistemas físicos.",
+  },
+];
+
+const projects = [
+  {
+    category: "MACHINE LEARNING",
+    title: "Inteligência Artificial aplicada à Bioinformática",
+    description:
+      "Desenvolvimento de modelos computacionais para compreender e predizer fenômenos relacionados à estrutura e dinâmica molecular.",
+    year: "2026",
+  },
+  {
+    category: "EDGE AI",
+    title: "Computação Inteligente na Borda",
+    description:
+      "Investigação de arquiteturas FPGA e sistemas embarcados para execução eficiente de modelos de inteligência artificial.",
+    year: "2026",
+  },
+  {
+    category: "HPC",
+    title: "Computação de Alto Desempenho",
+    description:
+      "Pesquisa em arquiteturas paralelas, processamento acelerado e aplicações científicas de alto desempenho.",
+    year: "2026",
+  },
+];
+
+const news = [
+  {
+    date: "21 AGO 2026",
+    category: "PESQUISA",
+    title: "LIRA amplia pesquisas em Inteligência Artificial e Computação de Alto Desempenho",
+  },
+  {
+    date: "18 AGO 2026",
+    category: "TECNOLOGIA",
+    title: "Laboratório inicia estudos em FPGA e Edge AI",
+  },
+  {
+    date: "12 AGO 2026",
+    category: "ACADÊMICO",
+    title: "Novos projetos de pesquisa são incorporados ao laboratório",
+  },
+];
+
+export default function Home() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
-    <div className="min-h-screen bg-white">
-      {/* NAVBAR */}
-      <nav className="fixed top-0 w-full z-50 border-b border-slate-800 bg-white backdrop-blur">
-        <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <img
-              src="/Coat.png"
-              alt="Universidade de Ribeirão Preto"
-              className="w-12 h-12"
-            />
+    <main className="min-h-screen bg-[#f7f7f5] text-[#111]">
+      {/* =====================================================
+          HEADER
+      ====================================================== */}
 
-            <div>
-              <h1 className="font-bold text-lg">
-                CORTEX – Centro de Otimização, Redes, Tecnologia e Sistemas Experimentais
-              </h1>
+      <header className="fixed left-0 right-0 top-0 z-50 border-b border-black/10 bg-[#f7f7f5]/95 backdrop-blur-md">
+        <div className="mx-auto flex h-[78px] max-w-[1500px] items-center justify-between px-6 md:px-10">
+          {/* Logo */}
 
-              <p className="text-xs ">
-                UNAERP - Universidade de Ribeirão Preto
-              </p>
+          <a href="#" className="group flex items-center gap-4">
+            <div className="flex h-11 w-11 items-center justify-center bg-[#111] text-lg font-black tracking-tighter text-white transition-transform group-hover:rotate-[-4deg]">
+              L
             </div>
-          </div>
 
-          <div className="hidden md:flex gap-8 ">
-            <a href="#sobre" className="hover:text-cyan-400">
-              Sobre
-            </a>
+            <div className="leading-none">
+              <div className="text-[24px] font-black tracking-[-0.07em]">
+                LIRA
+              </div>
 
-            <a href="#blog" className="hover:text-cyan-400">
-              Blog
-            </a>
+              <div className="mt-1 hidden text-[8px] font-semibold uppercase tracking-[0.22em] text-black/50 sm:block">
+                Laboratório de Inteligência Artificial,
+                <br />
+                Robótica e Automação
+              </div>
+            </div>
+          </a>
 
+          {/* Desktop navigation */}
 
-            <a href="#pesquisa" className="hover:text-cyan-400">
+          <nav className="hidden items-center gap-8 lg:flex">
+            <a
+              href="#pesquisa"
+              className="text-[12px] font-bold uppercase tracking-[0.12em] transition-opacity hover:opacity-50"
+            >
               Pesquisa
             </a>
 
-            <a href="#projetos" className="hover:text-cyan-400">
+            <a
+              href="#projetos"
+              className="text-[12px] font-bold uppercase tracking-[0.12em] transition-opacity hover:opacity-50"
+            >
               Projetos
             </a>
 
-            <a href="#equipe" className="hover:text-cyan-400">
-              Equipe
+            <a
+              href="#pessoas"
+              className="text-[12px] font-bold uppercase tracking-[0.12em] transition-opacity hover:opacity-50"
+            >
+              Pessoas
             </a>
-          </div>
-        </div>
-      </nav>
 
-      <section className=" flex items-center justify-center px-6 pt-30 mb-20 mt-20">
-        <div className="max-w-5xl text-center">
-          {/* TÍTULO */}
-          <h1 className="text-5xl md:text-7xl font-bold mb-8">
-            CORTEX – Centro de Otimização, Redes, Tecnologia e Sistemas Experimentais
-          </h1>
-        </div>
-      </section>
-      {/* SOBRE */}
-      <section
-        id="sobre"
-        className="max-w-6xl mx-auto px-6 py-24"
-      >
-        <h2 className="text-4xl font-bold mb-8">
-          Sobre o Laboratório
-        </h2>
+            <a
+              href="#publicacoes"
+              className="text-[12px] font-bold uppercase tracking-[0.12em] transition-opacity hover:opacity-50"
+            >
+              Publicações
+            </a>
 
-        <p className="text-slate-800 leading-8 text-lg">
-          O CORTEX tem
-          como objetivo desenvolver pesquisas e tecnologias avançadas
-          para a solução de problemas científicos, acadêmicos e
-          industriais por meio da computação.
-        </p>
+            <a
+              href="#noticias"
+              className="text-[12px] font-bold uppercase tracking-[0.12em] transition-opacity hover:opacity-50"
+            >
+              Notícias
+            </a>
 
-        <p className="text-slate-800 leading-8 text-lg">
-          O propósito dessa iniciativa é promover um ambiente de pesquisa colaborativo e interdisciplinar, onde
-          estudantes, professores e pesquisadores possam trabalhar juntos para enfrentar desafios computacionais 
-          complexos e contribuir para o avanço do conhecimento científico e tecnológico.
-        </p>
+            <a
+              href="#contato"
+              className="border border-black px-5 py-3 text-[11px] font-bold uppercase tracking-[0.12em] transition-all hover:bg-black hover:text-white"
+            >
+              Contato
+            </a>
+          </nav>
 
-        <p className="text-slate-800 leading-8 text-lg">
-          Nossas atividades envolvem modelagem matemática, simulação
-          computacional, inteligência artificial, análise de dados,
-          computação paralela e infraestrutura de alto desempenho.
-        </p>
-      </section>
+          {/* Mobile button */}
 
-      <section id="blog" className="bg-slate-100 py-24">
-        <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-4xl font-bold mb-8">
-            Blog do CORTEX
-          </h2>
-        </div>
-
-        <div className="max-w-6xl mx-auto px-6">
-          <p className="text-slate-800 leading-8 text-lg">
-            Aqui você encontrará as últimas notícias e atualizações sobre o CORTEX.
-          </p>
-        </div>
-        <div className="max-w-6xl mx-auto px-6 mt-12 grid md:grid-cols-3 gap-8">
-          {latestPosts.map((post) => (
-            <PostCard key={post.id} post={post} />
-          ))}
-        </div>
-        
-        <div className="max-w-6xl mx-auto px-6 mt-2 text-end">
-          <button className="bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-2 px-4 rounded">
-            Ver todos os posts
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="flex h-11 w-11 items-center justify-center border border-black lg:hidden"
+            aria-label="Abrir menu"
+          >
+            <div className="space-y-1.5">
+              <span className="block h-[1px] w-5 bg-black" />
+              <span className="block h-[1px] w-5 bg-black" />
+              <span className="block h-[1px] w-5 bg-black" />
+            </div>
           </button>
         </div>
 
+        {/* Mobile menu */}
 
-      </section>
-
-      {/* PESQUISA */}
-      <section
-        id="pesquisa"
-        className="max-w-6xl mx-auto px-6 py-24"
-      >
-        <h2 className="text-4xl font-bold mb-12">
-          Áreas de Pesquisa
-        </h2>
-
-        <div className="grid md:grid-cols-3 gap-6">
-          {[
-            "Computação Científica",
-            "Inteligência Artificial",
-            "Computação de Alto Desempenho",
-            "Bioinformática",
-            "Visualização Científica",
-            "Sistemas Distribuídos",
-          ].map((area) => (
-            <div
-              key={area}
-              className="p-6 rounded-xl  bg-slate-200"
-            >
-              <h3 className="font-semibold text-xl mb-3">
-                {area}
-              </h3>
-
-              <p className="text-slate-400">
-                Desenvolvimento de pesquisas e soluções inovadoras para
-                desafios computacionais modernos.
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* PROJETOS */}
-      <section
-        id="projetos"
-        className="bg-slate-900 py-24"
-      >
-        <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-4xl font-bold mb-12 text-white">
-            Projetos em Destaque
-          </h2>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="p-8 rounded-xl border border-slate-800">
-              <h3 className="text-2xl font-semibold mb-4 text-white">
-                Machine Learning para Predição de Arboviroses
-              </h3>
-
-              <p className="text-slate-400">
-                Aplicação de inteligência artificial para análise de
-                sequências genéticas e previsão de variantes futuras.
-              </p>
-            </div>
-
-            <div className="p-8 rounded-xl border border-slate-800">
-              <h3 className="text-2xl font-semibold mb-4 text-white">
-                Motor Gráfico 3D e Gêmeo Digital para Aplicações do Mundo Real
-              </h3>
-
-              <p className="text-slate-400">
-                Desenvolvimento de um motor gráfico 3D para visualização de gêmeos digitais em tempo real, com foco em aplicações industriais e científicas.
-              </p>
-            </div>
-            <div className="p-8 rounded-xl border border-slate-800">
-              <h3 className="text-2xl font-semibold mb-4 text-white">
-                Robodente - Robô Odontológico Mecânico
-              </h3>
-              <p className="text-slate-400">
-                Projeto de um robô odontológico mecânico para fins educativos
-              </p>
-            </div>
-            <div className="p-8 rounded-xl border border-slate-800">
-              <h3 className="text-2xl font-semibold mb-4 text-white">
-                Visão Computacional em Ambientes de Produção
-              </h3>
-              <p className="text-slate-400">
-                Desenvolvimento de sistemas de visão computacional para monitoramento e controle de processos industriais.
-              </p>
-            </div>
+        {menuOpen && (
+          <div className="border-t border-black/10 bg-[#f7f7f5] px-6 py-8 lg:hidden">
+            <nav className="flex flex-col gap-6">
+              {["Pesquisa", "Projetos", "Pessoas", "Publicações", "Notícias"].map(
+                (item) => (
+                  <a
+                    key={item}
+                    href={`#${item.toLowerCase()}`}
+                    onClick={() => setMenuOpen(false)}
+                    className="text-2xl font-black tracking-tight"
+                  >
+                    {item}
+                  </a>
+                )
+              )}
+            </nav>
           </div>
+        )}
+      </header>
+
+      {/* =====================================================
+          HERO
+      ====================================================== */}
+
+      <section className="relative flex min-h-screen items-end overflow-hidden border-b border-black/10 pt-[78px]">
+        {/* Decorative grid */}
+
+        <div className="pointer-events-none absolute inset-0 opacity-[0.035]">
+          <div
+            className="h-full w-full"
+            style={{
+              backgroundImage:
+                "linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)",
+              backgroundSize: "80px 80px",
+            }}
+          />
         </div>
-      </section>
 
-      {/* INFRAESTRUTURA */}
-      <section className="max-w-6xl mx-auto px-6 py-24">
-        <h2 className="text-4xl font-bold mb-12">
-          Infraestrutura
-        </h2>
+        {/* Large background number */}
 
-        <div>
-          <h3 className="text-2xl font-semibold mb-6">
-            Cluster
-          </h3>
-          <div className="grid md:grid-cols-4 gap-6">
-            {[
-              "32 Núcleos de Processamento",
-              "4 GPUs para Pesquisa",
-              "64 GB de RAM",
-              "5 TB de Armazenamento",
-            ].map((item) => (
-              <div
-                key={item}
-                className="p-6 rounded-xl border border-slate-800 text-center justify-center flex items-center"
+        <div className="pointer-events-none absolute right-[-30px] top-[100px] select-none text-[25vw] font-black leading-none tracking-[-0.1em] text-black/[0.025]">
+          01
+        </div>
+
+        <div className="relative mx-auto grid w-full max-w-[1500px] grid-cols-1 gap-12 px-6 pb-16 md:px-10 lg:grid-cols-[1.4fr_0.6fr] lg:items-end lg:pb-24">
+          <div>
+            <div className="mb-8 flex items-center gap-3">
+              <span className="h-[1px] w-10 bg-black" />
+
+              <span className="text-[10px] font-bold uppercase tracking-[0.25em]">
+                Universidade de Ribeirão Preto
+              </span>
+            </div>
+
+            <h1 className="max-w-[1100px] text-[15vw] font-black leading-[0.78] tracking-[-0.09em] sm:text-[110px] md:text-[130px] lg:text-[145px]">
+              LIRA
+            </h1>
+
+            <div className="mt-8 max-w-[850px]">
+              <h2 className="text-3xl font-bold leading-[1.05] tracking-[-0.04em] sm:text-4xl md:text-5xl lg:text-6xl">
+                Inteligência artificial,
+                <br />
+                robótica e automação
+                <br />
+                para a ciência.
+              </h2>
+            </div>
+
+            <div className="mt-10 flex flex-col gap-5 sm:flex-row">
+              <a
+                href="#pesquisa"
+                className="inline-flex items-center justify-center bg-black px-7 py-4 text-[11px] font-bold uppercase tracking-[0.16em] text-white transition-all hover:bg-[#222]"
               >
-                <p className="font-semibold">{item}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className="mt-12">
-          <h3 className="text-2xl font-semibold mb-6">
-            Computadores
-          </h3>
-          <div className="grid md:grid-cols-4 gap-6">
-            {[
-              "4 máquinas com 6 núcleos de processamento",
-              "Estação Individual",
-              "16 GB de RAM",
-              "512 GB de Armazenamento",
-            ].map((item) => (
-              <div
-                key={item}
-                className="p-6 rounded-xl border border-slate-800 text-center justify-center flex items-center"
+                Conheça nossa pesquisa
+                <span className="ml-8 text-lg">↗</span>
+              </a>
+
+              <a
+                href="#projetos"
+                className="inline-flex items-center justify-center border border-black px-7 py-4 text-[11px] font-bold uppercase tracking-[0.16em] transition-all hover:bg-black hover:text-white"
               >
-                <p className="font-semibold">{item}</p>
+                Ver projetos
+              </a>
+            </div>
+          </div>
+
+          {/* Hero information */}
+
+          <div className="border-l border-black/20 pl-6 lg:mb-2">
+            <div className="mb-10">
+              <div className="mb-2 text-[9px] font-bold uppercase tracking-[0.2em] text-black/40">
+                Laboratório
               </div>
-            ))}
+
+              <p className="text-lg font-medium leading-snug">
+                Um espaço dedicado à pesquisa, desenvolvimento e aplicação de
+                tecnologias computacionais.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-2 gap-8 border-t border-black/15 pt-6">
+              <div>
+                <div className="text-4xl font-black tracking-tight">04+</div>
+                <div className="mt-1 text-[9px] font-bold uppercase tracking-[0.15em] text-black/40">
+                  Áreas de pesquisa
+                </div>
+              </div>
+
+              <div>
+                <div className="text-4xl font-black tracking-tight">∞</div>
+                <div className="mt-1 text-[9px] font-bold uppercase tracking-[0.15em] text-black/40">
+                  Possibilidades
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* EQUIPE */}
-      <section
-        id="equipe"
-        className="max-w-6xl mx-auto px-6 py-24"
-      >
-        <h2 className="text-4xl font-bold mb-12">
-          Equipe
-        </h2>
+      {/* =====================================================
+          INTRO
+      ====================================================== */}
 
-<div className="grid md:grid-cols-3 gap-8">
-  {[
-    {
-      foto:"/photos/Fernando.png",
-      nome: "Prof. Me. Fernando Perez",
-      cargo: "Professor Coordenador",
-    },
-    {
-      foto:"/photos/Lorenzo.png",
-      nome: "Lorenzo C. Circelli",
-      cargo: "Aluno de Graduação",
-    },
-    {
-      foto:"/photos/Hugo.png",
-      nome: "Hugo França",
-      cargo: "Aluno de Graduação",
-    },
-    {
-      foto:"/photos/Gabriel.png",
-      nome: "Gabriel Monteiro",
-      cargo: "Aluno de Graduação",
-    },
-    {
-      foto:"/photos/Nicolas.png",
-      nome: "Nicolas Giussani Vieira",
-      cargo: "Aluno de Graduação",
-    },
-    {
-      foto:"/photos/Igor.png",
-      nome: "Igor Palazzo",
-      cargo: "Aluno de Graduação",
-    },
-  ].map(({ foto, nome, cargo }) => (
-    <div
-      key={nome}
-      className="rounded-xl border border-slate-800 overflow-hidden"
-    >
-      <img src={foto} alt={nome} className="w-full h-64 object-cover " />
-
-      <div className="p-6">
-        <h3 className="text-xl font-bold">
-          {nome}
-        </h3>
-
-        <p className="text-cyan-800 font-semibold">
-          {cargo}
-        </p>
-      </div>
-    </div>
-  ))}
-</div>
-      </section>
-
-      {/* RODAPÉ */}
-      <footer className="border-t border-slate-800 py-12 bg-slate-950 text-white">
-        <div className="max-w-6xl mx-auto px-6">
-
-          <div className="flex items-center gap-4 mb-6">
-
-            <img
-              src="/Coat.png"
-              alt="Universidade de Ribeirão Preto"
-              className="w-30 h-30"
-            />
+      <section className="border-b border-black/10 bg-black py-20 text-white md:py-28">
+        <div className="mx-auto max-w-[1500px] px-6 md:px-10">
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-[0.4fr_1.6fr]">
+            <div>
+              <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-white/40">
+                Sobre o LIRA
+              </span>
+            </div>
 
             <div>
-              <h3 className="font-bold text-lg">
-                CORTEX – Centro de Otimização, Redes, Tecnologia e Sistemas Experimentais
-              </h3>
+              <p className="max-w-[1100px] text-3xl font-medium leading-[1.12] tracking-[-0.04em] md:text-5xl lg:text-6xl">
+                Desenvolvemos tecnologia para investigar problemas que
+                atravessam a ciência, a engenharia e o mundo real.
+              </p>
 
-              <p className="text-slate-400">
-                Universidade de Ribeirão Preto
+              <div className="mt-12 grid grid-cols-1 gap-8 border-t border-white/15 pt-8 md:grid-cols-3">
+                <div>
+                  <div className="mb-3 text-[10px] font-bold uppercase tracking-[0.2em] text-white/40">
+                    01 — Descobrir
+                  </div>
+                  <p className="text-sm leading-relaxed text-white/65">
+                    Investigamos problemas e transformamos perguntas em
+                    hipóteses computacionais.
+                  </p>
+                </div>
+
+                <div>
+                  <div className="mb-3 text-[10px] font-bold uppercase tracking-[0.2em] text-white/40">
+                    02 — Desenvolver
+                  </div>
+                  <p className="text-sm leading-relaxed text-white/65">
+                    Criamos modelos, algoritmos e sistemas para resolver
+                    problemas complexos.
+                  </p>
+                </div>
+
+                <div>
+                  <div className="mb-3 text-[10px] font-bold uppercase tracking-[0.2em] text-white/40">
+                    03 — Aplicar
+                  </div>
+                  <p className="text-sm leading-relaxed text-white/65">
+                    Levamos resultados de pesquisa para aplicações científicas
+                    e tecnológicas.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* =====================================================
+          RESEARCH AREAS
+      ====================================================== */}
+
+      <section
+        id="pesquisa"
+        className="border-b border-black/10 py-20 md:py-28"
+      >
+        <div className="mx-auto max-w-[1500px] px-6 md:px-10">
+          <div className="mb-16 flex flex-col justify-between gap-6 md:flex-row md:items-end">
+            <div>
+              <div className="mb-5 text-[10px] font-bold uppercase tracking-[0.25em] text-black/40">
+                01 / Pesquisa
+              </div>
+
+              <h2 className="text-5xl font-black tracking-[-0.06em] md:text-7xl">
+                Áreas de pesquisa
+              </h2>
+            </div>
+
+            <p className="max-w-md text-sm leading-relaxed text-black/55">
+              Nossas pesquisas conectam diferentes áreas da computação para
+              desenvolver soluções capazes de lidar com problemas complexos.
+            </p>
+          </div>
+
+          <div className="border-t border-black">
+            {researchAreas.map((area) => (
+              <div
+                key={area.number}
+                className="group grid grid-cols-[60px_1fr] gap-6 border-b border-black/15 py-8 transition-all md:grid-cols-[100px_1fr_1fr] md:gap-10 md:py-10"
+              >
+                <div className="text-[11px] font-bold text-black/35">
+                  {area.number}
+                </div>
+
+                <h3 className="text-2xl font-black tracking-[-0.04em] transition-transform group-hover:translate-x-2 md:text-4xl">
+                  {area.title}
+                </h3>
+
+                <p className="col-start-2 text-sm leading-relaxed text-black/55 md:col-start-3">
+                  {area.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* =====================================================
+          FEATURED RESEARCH
+      ====================================================== */}
+
+      <section className="border-b border-black/10 bg-[#e8e8e5] py-20 md:py-28">
+        <div className="mx-auto max-w-[1500px] px-6 md:px-10">
+          <div className="mb-14 text-[10px] font-bold uppercase tracking-[0.25em] text-black/40">
+            Pesquisa em destaque
+          </div>
+
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1fr_1fr]">
+            {/* Visual */}
+
+            <div className="relative min-h-[450px] overflow-hidden bg-black md:min-h-[600px]">
+              {/* abstract molecular visual */}
+
+              <div className="absolute inset-0 opacity-80">
+                <div className="absolute left-[25%] top-[20%] h-40 w-40 rounded-full border border-white/30" />
+                <div className="absolute left-[48%] top-[35%] h-28 w-28 rounded-full border border-white/40" />
+                <div className="absolute left-[60%] top-[55%] h-48 w-48 rounded-full border border-white/20" />
+                <div className="absolute left-[35%] top-[65%] h-20 w-20 rounded-full border border-white/50" />
+
+                <div className="absolute left-[32%] top-[33%] h-px w-[25%] rotate-[25deg] bg-white/30" />
+                <div className="absolute left-[45%] top-[52%] h-px w-[25%] rotate-[-35deg] bg-white/30" />
+                <div className="absolute left-[38%] top-[65%] h-px w-[20%] rotate-[20deg] bg-white/30" />
+              </div>
+
+              <div className="absolute bottom-6 left-6 right-6 flex justify-between text-[9px] font-bold uppercase tracking-[0.2em] text-white/40">
+                <span>Computational biology</span>
+                <span>2026</span>
+              </div>
+            </div>
+
+            {/* Text */}
+
+            <div className="flex flex-col justify-between">
+              <div>
+                <div className="mb-6 text-[10px] font-bold uppercase tracking-[0.2em] text-black/40">
+                  Machine Learning × Bioinformática
+                </div>
+
+                <h2 className="max-w-2xl text-4xl font-black leading-[0.95] tracking-[-0.06em] md:text-6xl">
+                  Predição computacional de fenômenos estruturais.
+                </h2>
+
+                <p className="mt-8 max-w-xl text-base leading-relaxed text-black/60">
+                  Utilizamos aprendizado de máquina, dinâmica molecular e
+                  descritores estruturais para investigar relações entre
+                  alterações moleculares e comportamento estrutural.
+                </p>
+              </div>
+
+              <div className="mt-12">
+                <div className="grid grid-cols-2 border-y border-black/15 py-6">
+                  <div>
+                    <div className="text-3xl font-black">ML</div>
+                    <div className="mt-1 text-[9px] font-bold uppercase tracking-[0.15em] text-black/40">
+                      Machine Learning
+                    </div>
+                  </div>
+
+                  <div>
+                    <div className="text-3xl font-black">MD</div>
+                    <div className="mt-1 text-[9px] font-bold uppercase tracking-[0.15em] text-black/40">
+                      Molecular Dynamics
+                    </div>
+                  </div>
+                </div>
+
+                <a
+                  href="#"
+                  className="mt-8 inline-flex items-center text-[11px] font-bold uppercase tracking-[0.15em]"
+                >
+                  Explorar pesquisa
+                  <span className="ml-5 text-xl transition-transform hover:translate-x-2">
+                    →
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* =====================================================
+          PROJECTS
+      ====================================================== */}
+
+      <section
+        id="projetos"
+        className="border-b border-black/10 py-20 md:py-28"
+      >
+        <div className="mx-auto max-w-[1500px] px-6 md:px-10">
+          <div className="mb-16">
+            <div className="mb-5 text-[10px] font-bold uppercase tracking-[0.25em] text-black/40">
+              02 / Projetos
+            </div>
+
+            <div className="flex flex-col justify-between gap-8 md:flex-row md:items-end">
+              <h2 className="text-5xl font-black tracking-[-0.06em] md:text-7xl">
+                O que estamos
+                <br />
+                construindo.
+              </h2>
+
+              <a
+                href="#"
+                className="text-[11px] font-bold uppercase tracking-[0.15em] underline underline-offset-4"
+              >
+                Todos os projetos →
+              </a>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 gap-px bg-black/15 md:grid-cols-3">
+            {projects.map((project, index) => (
+              <article
+                key={project.title}
+                className="group relative flex min-h-[480px] flex-col justify-between bg-[#f7f7f5] p-7 transition-all hover:bg-black hover:text-white md:p-9"
+              >
+                <div>
+                  <div className="flex justify-between">
+                    <span className="text-[9px] font-bold uppercase tracking-[0.2em] opacity-45">
+                      {project.category}
+                    </span>
+
+                    <span className="text-[9px] font-bold opacity-35">
+                      0{index + 1}
+                    </span>
+                  </div>
+
+                  <h3 className="mt-20 text-3xl font-black leading-[0.95] tracking-[-0.05em] md:text-4xl">
+                    {project.title}
+                  </h3>
+                </div>
+
+                <div>
+                  <p className="text-sm leading-relaxed opacity-55">
+                    {project.description}
+                  </p>
+
+                  <div className="mt-8 flex items-center justify-between border-t border-current/15 pt-5">
+                    <span className="text-[9px] font-bold uppercase tracking-[0.15em] opacity-40">
+                      {project.year}
+                    </span>
+
+                    <span className="text-xl transition-transform group-hover:translate-x-2">
+                      →
+                    </span>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* =====================================================
+          PEOPLE
+      ====================================================== */}
+
+      <section
+        id="pessoas"
+        className="border-b border-black/10 bg-black py-20 text-white md:py-28"
+      >
+        <div className="mx-auto max-w-[1500px] px-6 md:px-10">
+          <div className="grid grid-cols-1 gap-16 lg:grid-cols-[0.7fr_1.3fr]">
+            <div>
+              <div className="mb-5 text-[10px] font-bold uppercase tracking-[0.25em] text-white/35">
+                03 / Pessoas
+              </div>
+
+              <h2 className="text-5xl font-black leading-[0.9] tracking-[-0.06em] md:text-7xl">
+                Pessoas
+                <br />
+                movem a
+                <br />
+                pesquisa.
+              </h2>
+            </div>
+
+            <div>
+              <p className="max-w-2xl text-2xl font-medium leading-snug text-white/80 md:text-4xl">
+                O LIRA reúne estudantes, professores e pesquisadores
+                interessados em transformar problemas científicos em
+                oportunidades computacionais.
+              </p>
+
+              <div className="mt-14 border-t border-white/15">
+                <div className="flex items-center justify-between border-b border-white/15 py-6">
+                  <span className="text-sm font-bold">Pesquisadores</span>
+                  <span className="text-2xl">→</span>
+                </div>
+
+                <div className="flex items-center justify-between border-b border-white/15 py-6">
+                  <span className="text-sm font-bold">Estudantes</span>
+                  <span className="text-2xl">→</span>
+                </div>
+
+                <div className="flex items-center justify-between border-b border-white/15 py-6">
+                  <span className="text-sm font-bold">Colaboradores</span>
+                  <span className="text-2xl">→</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* =====================================================
+          PUBLICATIONS
+      ====================================================== */}
+
+      <section
+        id="publicacoes"
+        className="border-b border-black/10 py-20 md:py-28"
+      >
+        <div className="mx-auto max-w-[1500px] px-6 md:px-10">
+          <div className="mb-14">
+            <div className="mb-5 text-[10px] font-bold uppercase tracking-[0.25em] text-black/40">
+              04 / Publicações
+            </div>
+
+            <h2 className="text-5xl font-black tracking-[-0.06em] md:text-7xl">
+              Conhecimento
+              <br />
+              compartilhado.
+            </h2>
+          </div>
+
+          <div className="border-t border-black">
+            {[
+              "Machine Learning applied to structural molecular descriptors",
+              "Computational approaches for biological systems",
+              "High-performance computing for scientific applications",
+            ].map((publication, index) => (
+              <div
+                key={publication}
+                className="group grid grid-cols-[45px_1fr] gap-6 border-b border-black/15 py-7 md:grid-cols-[70px_1fr_100px]"
+              >
+                <span className="text-[10px] font-bold text-black/35">
+                  0{index + 1}
+                </span>
+
+                <h3 className="text-lg font-bold leading-tight md:text-xl">
+                  {publication}
+                </h3>
+
+                <span className="hidden text-right text-[9px] font-bold uppercase tracking-[0.15em] text-black/35 md:block">
+                  2026 ↗
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* =====================================================
+          NEWS
+      ====================================================== */}
+
+      <section
+        id="noticias"
+        className="border-b border-black/10 bg-[#e8e8e5] py-20 md:py-28"
+      >
+        <div className="mx-auto max-w-[1500px] px-6 md:px-10">
+          <div className="mb-14 flex items-end justify-between">
+            <div>
+              <div className="mb-5 text-[10px] font-bold uppercase tracking-[0.25em] text-black/40">
+                05 / Notícias
+              </div>
+
+              <h2 className="text-5xl font-black tracking-[-0.06em] md:text-7xl">
+                Últimas notícias
+              </h2>
+            </div>
+
+            <a
+              href="#"
+              className="hidden text-[10px] font-bold uppercase tracking-[0.15em] underline underline-offset-4 md:block"
+            >
+              Ver todas →
+            </a>
+          </div>
+
+          <div className="grid grid-cols-1 gap-px bg-black/15 md:grid-cols-3">
+            {news.map((item) => (
+              <article
+                key={item.title}
+                className="group bg-[#e8e8e5] p-7 transition-colors hover:bg-white md:min-h-[320px] md:p-9"
+              >
+                <div className="flex justify-between">
+                  <span className="text-[9px] font-bold uppercase tracking-[0.15em] text-black/40">
+                    {item.category}
+                  </span>
+
+                  <span className="text-[9px] font-bold text-black/35">
+                    {item.date}
+                  </span>
+                </div>
+
+                <h3 className="mt-16 text-2xl font-black leading-[1] tracking-[-0.04em]">
+                  {item.title}
+                </h3>
+
+                <div className="mt-8 text-xl transition-transform group-hover:translate-x-2">
+                  →
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* =====================================================
+          CONTACT
+      ====================================================== */}
+
+      <section
+        id="contato"
+        className="border-b border-black/10 bg-black py-24 text-white md:py-36"
+      >
+        <div className="mx-auto max-w-[1500px] px-6 md:px-10">
+          <div className="max-w-[1100px]">
+            <div className="mb-8 text-[10px] font-bold uppercase tracking-[0.25em] text-white/35">
+              06 / Contato
+            </div>
+
+            <h2 className="text-6xl font-black leading-[0.85] tracking-[-0.08em] md:text-8xl lg:text-[120px]">
+              Vamos
+              <br />
+              pesquisar
+              <br />
+              juntos.
+            </h2>
+
+            <a
+              href="mailto:laboratorio@liralab.com.br"
+              className="mt-12 inline-flex items-center border border-white/30 px-7 py-4 text-[11px] font-bold uppercase tracking-[0.15em] transition-all hover:bg-white hover:text-black"
+            >
+              Entre em contato
+              <span className="ml-8 text-lg">↗</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* =====================================================
+          FOOTER
+      ====================================================== */}
+
+      <footer className="bg-[#111] py-12 text-white">
+        <div className="mx-auto max-w-[1500px] px-6 md:px-10">
+          <div className="grid grid-cols-1 gap-12 md:grid-cols-3">
+            <div>
+              <div className="text-4xl font-black tracking-[-0.08em]">
+                LIRA
+              </div>
+
+              <p className="mt-4 max-w-xs text-xs leading-relaxed text-white/40">
+                Laboratório de Inteligência Artificial, Robótica e Automação.
               </p>
             </div>
 
+            <div>
+              <div className="mb-4 text-[9px] font-bold uppercase tracking-[0.2em] text-white/30">
+                Navegação
+              </div>
+
+              <div className="grid grid-cols-2 gap-y-3 text-sm text-white/65">
+                <a href="#pesquisa">Pesquisa</a>
+                <a href="#projetos">Projetos</a>
+                <a href="#pessoas">Pessoas</a>
+                <a href="#publicacoes">Publicações</a>
+                <a href="#noticias">Notícias</a>
+                <a href="#contato">Contato</a>
+              </div>
+            </div>
+
+            <div>
+              <div className="mb-4 text-[9px] font-bold uppercase tracking-[0.2em] text-white/30">
+                Instituição
+              </div>
+
+              <p className="text-sm leading-relaxed text-white/55">
+                Universidade de Ribeirão Preto
+                <br />
+                UNAERP
+                <br />
+                Ribeirão Preto — SP
+                <br />
+                Brasil
+              </p>
+            </div>
           </div>
 
-          <div className="border-t border-slate-800 pt-6 text-sm text-slate-500">
-            Departamento de Engenharia da Computação
-            <br />
-            UNAERP - Universidade de Ribeirão Preto
-            <br />
-            lorenzo.circelli@sou.edu.unaerp.br
+          <div className="mt-16 flex flex-col justify-between gap-4 border-t border-white/10 pt-6 text-[9px] font-bold uppercase tracking-[0.15em] text-white/25 md:flex-row">
+            <span>© 2026 LIRA</span>
+            <span>Laboratório de Inteligência Artificial, Robótica e Automação</span>
           </div>
-
         </div>
       </footer>
-    </div>
+
+      {/* =====================================================
+          GLOBAL STYLE
+      ====================================================== */}
+
+      <style jsx global>{`
+        html {
+          scroll-behavior: smooth;
+        }
+
+        body {
+          margin: 0;
+          background: #f7f7f5;
+        }
+
+        ::selection {
+          background: #111;
+          color: white;
+        }
+
+        a {
+          text-decoration: none;
+        }
+      `}</style>
+    </main>
   );
 }
