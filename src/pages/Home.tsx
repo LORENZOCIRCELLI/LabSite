@@ -55,23 +55,6 @@ const projects = [
   },
 ];
 
-const news = [
-  {
-    date: "21 AGO 2026",
-    category: "PESQUISA",
-    title: "LIRA amplia pesquisas em Inteligência Artificial e Computação de Alto Desempenho",
-  },
-  {
-    date: "18 AGO 2026",
-    category: "TECNOLOGIA",
-    title: "Laboratório inicia estudos em FPGA e Edge AI",
-  },
-  {
-    date: "12 AGO 2026",
-    category: "ACADÊMICO",
-    title: "Novos projetos de pesquisa são incorporados ao laboratório",
-  },
-];
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
