@@ -1,0 +1,16 @@
+{
+  "name": "Prof. Me. Fernando Perez",
+  "role": "Professor e Pesquisador",
+  "photo": "/public/photos/Fernando.png",
+  "bio": "Professor e pesquisador com atuação em inteligência artificial, robótica, automação e sistemas computacionais aplicados à engenharia.",
+  "researchAreas": [
+    "Inteligência Artificial",
+    "Robótica",
+    "Automação",
+    "Sistemas Inteligentes"
+  ],
+  "email": "joao.almeida@universidade.br",
+  "lattes": "https://lattes.cnpq.br/",
+  "linkedin": "https://www.linkedin.com/",
+  "github": ""
+}

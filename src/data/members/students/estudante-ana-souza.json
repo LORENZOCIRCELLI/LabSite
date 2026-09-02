@@ -1,0 +1,15 @@
+{
+  "name": "Ana Souza",
+  "role": "Estudante de Engenharia da Computação",
+  "photo": "/members/estudante-ana-souza.jpg",
+  "bio": "Estudante e pesquisadora em formação com interesse em inteligência artificial, aprendizado de máquina e aplicações computacionais voltadas à automação.",
+  "researchAreas": [
+    "Machine Learning",
+    "Inteligência Artificial",
+    "Automação"
+  ],
+  "email": "ana.souza@universidade.br",
+  "lattes": "https://lattes.cnpq.br/",
+  "linkedin": "https://www.linkedin.com/",
+  "github": "https://github.com/"
+}

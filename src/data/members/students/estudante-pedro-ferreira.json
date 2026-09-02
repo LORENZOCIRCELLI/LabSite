@@ -1,0 +1,16 @@
+{
+  "name": "Pedro Ferreira",
+  "role": "Estudante de Engenharia da Computação",
+  "photo": "/members/estudante-pedro-ferreira.jpg",
+  "bio": "Estudante e pesquisador em formação com interesse em automação, veículos autônomos, drones e aplicações de inteligência artificial em sistemas físicos.",
+  "researchAreas": [
+    "Drones",
+    "Veículos Autônomos",
+    "Automação",
+    "Inteligência Artificial"
+  ],
+  "email": "pedro.ferreira@universidade.br",
+  "lattes": "https://lattes.cnpq.br/",
+  "linkedin": "https://www.linkedin.com/",
+  "github": "https://github.com/"
+}

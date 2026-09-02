@@ -563,21 +563,19 @@ export default function Home() {
               </p>
 
               <div className="mt-14 border-t border-white/15">
-                <div className="flex items-center justify-between border-b border-white/15 py-6">
-                  <a
-                  href="/membros/professores" 
-                  className="text-sm font-bold">Professores
-                  </a>                  
+                <a  
+                href="/membros/professores" 
+                className="flex items-center justify-between border-b border-white/15 py-6 hover:bg-gray-950">
+                  <p className="text-sm font-bold">Professores</p>                  
                   <span className="text-2xl">→</span>
-                </div>
+                </a>
 
-                <div className="flex items-center justify-between border-b border-white/15 py-6">
-                  <a
-                  href="/membros/estudantes" 
-                  className="text-sm font-bold">Estudantes
-                  </a>                  
+                <a  
+                href="/membros/estudantes" 
+                className="flex items-center justify-between border-b border-white/15 py-6 hover:bg-gray-950">
+                  <p className="text-sm font-bold">Estudantes</p>                  
                   <span className="text-2xl">→</span>
-                </div>
+                </a>
               </div>
             </div>
           </div>

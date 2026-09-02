@@ -1,0 +1,15 @@
+{
+  "name": "Mariana Rocha",
+  "role": "Estudante de Engenharia da Computação",
+  "photo": "/members/estudante-mariana-rocha.jpg",
+  "bio": "Estudante com interesse em visão computacional, processamento de imagens e utilização de redes neurais em sistemas inteligentes.",
+  "researchAreas": [
+    "Visão Computacional",
+    "Deep Learning",
+    "Processamento de Imagens"
+  ],
+  "email": "mariana.rocha@universidade.br",
+  "lattes": "https://lattes.cnpq.br/",
+  "linkedin": "https://www.linkedin.com/",
+  "github": "https://github.com/"
+}

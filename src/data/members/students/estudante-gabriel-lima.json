@@ -1,0 +1,15 @@
+{
+  "name": "Gabriel Lima",
+  "role": "Estudante de Engenharia da Computação",
+  "photo": "/members/estudante-gabriel-lima.jpg",
+  "bio": "Estudante e pesquisador em formação interessado em computação de alto desempenho, sistemas distribuídos e processamento paralelo.",
+  "researchAreas": [
+    "Computação de Alto Desempenho",
+    "Sistemas Distribuídos",
+    "Computação Paralela"
+  ],
+  "email": "gabriel.lima@universidade.br",
+  "lattes": "https://lattes.cnpq.br/",
+  "linkedin": "https://www.linkedin.com/",
+  "github": "https://github.com/"
+}

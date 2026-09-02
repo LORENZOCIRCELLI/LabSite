@@ -1,0 +1,15 @@
+{
+  "name": "Carlos Mendes",
+  "role": "Estudante de Engenharia da Computação",
+  "photo": "/members/estudante-carlos-mendes.jpg",
+  "bio": "Estudante com interesse em robótica móvel, sistemas embarcados e desenvolvimento de soluções integrando hardware e software.",
+  "researchAreas": [
+    "Robótica",
+    "Sistemas Embarcados",
+    "Internet das Coisas"
+  ],
+  "email": "carlos.mendes@universidade.br",
+  "lattes": "https://lattes.cnpq.br/",
+  "linkedin": "https://www.linkedin.com/",
+  "github": "https://github.com/"
+}
