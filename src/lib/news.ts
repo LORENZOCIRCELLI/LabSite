@@ -1,3 +1,5 @@
+// src/lib/news.ts
+
 export interface News {
   slug: string;
   title: string;
@@ -28,28 +30,11 @@ export const news: News[] = Object.entries(modules)
   })
   .sort((a, b) => b.date.localeCompare(a.date));
 
+export function getNewsBySlug(slug: string): News | undefined {
+  return news.find((article) => article.slug === slug);
+}
+
 export const newsTitles = news.map((article) => ({
   slug: article.slug,
   title: article.title,
 }));
-
-export function searchNewsByTitle(query: string) {
-  const normalizedQuery = query
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .toLowerCase()
-    .trim();
-
-  if (!normalizedQuery) {
-    return news;
-  }
-
-  return news.filter((article) => {
-    const normalizedTitle = article.title
-      .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "")
-      .toLowerCase();
-
-    return normalizedTitle.includes(normalizedQuery);
-  });
-}

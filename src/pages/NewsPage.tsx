@@ -2,6 +2,8 @@ import { useMemo, useState } from "react";
 import { news } from "../lib/news";
 import NewsCard from "../components/NewsCard";
 import { Link } from "react-router-dom";
+import { getNewsBySlug } from "../lib/news";
+
 function normalizeText(text: string) {
   return text
     .normalize("NFD")
