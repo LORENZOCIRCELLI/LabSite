@@ -1,0 +1,12 @@
+{
+  "title": "Laboratório inicia novo projeto de robótica móvel autônoma",
+  "date": "2026-09-01",
+  "placeholder": "/robodente.png",
+  "abstract": "Novo projeto investiga técnicas de navegação autônoma, percepção de ambiente e planejamento de trajetória para robôs móveis.",
+  "content": [
+    "O laboratório iniciou um novo projeto de pesquisa voltado ao desenvolvimento de sistemas de robótica móvel autônoma, com foco na integração entre sensores, algoritmos de navegação e técnicas de inteligência artificial.",
+    "A proposta envolve o estudo de métodos capazes de permitir que robôs identifiquem obstáculos, construam representações do ambiente e planejem trajetórias de maneira independente.",
+    "Entre as tecnologias investigadas estão algoritmos de localização, mapeamento, visão computacional e aprendizado de máquina aplicados à tomada de decisão em ambientes dinâmicos.",
+    "O projeto também busca criar uma plataforma experimental que possa ser utilizada em trabalhos acadêmicos, projetos de extensão e futuras pesquisas relacionadas à robótica inteligente."
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "title": "Laboratório desenvolve estudos em visão computacional aplicada à inspeção automática",
+  "date": "2026-08-04",
+  "placeholder": "/visao-computacional.jpg",
+  "abstract": "Pesquisa utiliza processamento de imagens e redes neurais para investigar métodos de identificação automática de objetos e possíveis falhas.",
+  "content": [
+    "O laboratório iniciou estudos voltados à aplicação de técnicas de visão computacional em sistemas de inspeção automática.",
+    "A pesquisa investiga métodos capazes de analisar imagens e identificar padrões, objetos e possíveis anomalias utilizando algoritmos tradicionais de processamento de imagens e modelos de aprendizado profundo.",
+    "Uma das abordagens consideradas envolve o treinamento de redes neurais convolucionais para classificação e detecção de características visuais em diferentes cenários.",
+    "Os resultados poderão servir como base para projetos relacionados à automação industrial, controle de qualidade, robótica e sistemas inteligentes de monitoramento."
+  ]
+}

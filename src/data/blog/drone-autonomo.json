@@ -1,0 +1,12 @@
+{
+  "title": "Novo estudo investiga navegação autônoma e visão computacional para drones",
+  "date": "2026-08-12",
+  "placeholder": "/drone-autonomo.jpg",
+  "abstract": "Projeto combina drones, visão computacional e inteligência artificial para investigar técnicas de reconhecimento e navegação autônoma.",
+  "content": [
+    "Uma nova iniciativa do laboratório pretende investigar a utilização de técnicas de visão computacional e inteligência artificial aplicadas à navegação de veículos aéreos não tripulados.",
+    "O projeto considera a utilização de imagens capturadas durante o voo para identificação de objetos, reconhecimento de regiões de interesse e auxílio na tomada de decisões de navegação.",
+    "Algoritmos de aprendizado profundo poderão ser empregados para analisar informações visuais em tempo real e fornecer dados para sistemas de controle autônomo.",
+    "Entre as possíveis aplicações futuras estão inspeção de estruturas, monitoramento ambiental, mapeamento de áreas e desenvolvimento de plataformas experimentais para pesquisa em robótica aérea."
+  ]
+}

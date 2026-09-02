@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 
+import LatestNews from "../components/LatestNews"
+
 const researchAreas = [
   {
     number: "01",
@@ -283,6 +285,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <LatestNews/>
 
       {/* =====================================================
           INTRO
@@ -648,60 +652,6 @@ export default function Home() {
       {/* =====================================================
           NEWS
       ====================================================== */}
-
-      <section
-        id="noticias"
-        className="border-b border-black/10 bg-[#e8e8e5] py-20 md:py-28"
-      >
-        <div className="mx-auto max-w-[1500px] px-6 md:px-10">
-          <div className="mb-14 flex items-end justify-between">
-            <div>
-              <div className="mb-5 text-[10px] font-bold uppercase tracking-[0.25em] text-black/40">
-                05 / Notícias
-              </div>
-
-              <h2 className="text-5xl font-black tracking-[-0.06em] md:text-7xl">
-                Últimas notícias
-              </h2>
-            </div>
-
-            <a
-              href="#"
-              className="hidden text-[10px] font-bold uppercase tracking-[0.15em] underline underline-offset-4 md:block"
-            >
-              Ver todas →
-            </a>
-          </div>
-
-          <div className="grid grid-cols-1 gap-px bg-black/15 md:grid-cols-3">
-            {news.map((item) => (
-              <article
-                key={item.title}
-                className="group bg-[#e8e8e5] p-7 transition-colors hover:bg-white md:min-h-[320px] md:p-9"
-              >
-                <div className="flex justify-between">
-                  <span className="text-[9px] font-bold uppercase tracking-[0.15em] text-black/40">
-                    {item.category}
-                  </span>
-
-                  <span className="text-[9px] font-bold text-black/35">
-                    {item.date}
-                  </span>
-                </div>
-
-                <h3 className="mt-16 text-2xl font-black leading-[1] tracking-[-0.04em]">
-                  {item.title}
-                </h3>
-
-                <div className="mt-8 text-xl transition-transform group-hover:translate-x-2">
-                  →
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* =====================================================
           CONTACT
       ====================================================== */}

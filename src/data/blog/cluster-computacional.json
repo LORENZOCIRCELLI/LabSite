@@ -1,0 +1,12 @@
+{
+  "title": "Laboratório avança na construção de cluster para computação científica",
+  "date": "2026-08-20",
+  "placeholder": "/cluster-computacional.jpg",
+  "abstract": "Nova infraestrutura computacional permitirá executar aplicações paralelas, simulações científicas e experimentos de inteligência artificial.",
+  "content": [
+    "O laboratório avançou na implementação de uma infraestrutura de computação de alto desempenho baseada em um conjunto de computadores conectados em rede.",
+    "O objetivo é criar um ambiente que permita executar aplicações paralelas e distribuídas, além de disponibilizar maior capacidade computacional para projetos científicos desenvolvidos pelo grupo.",
+    "A infraestrutura deverá ser utilizada em experimentos envolvendo aprendizado de máquina, simulações numéricas, processamento de grandes volumes de dados e outras aplicações computacionalmente intensivas.",
+    "O projeto também proporcionará aos estudantes contato prático com tecnologias utilizadas em ambientes de HPC, incluindo sistemas Linux, processamento paralelo, gerenciamento de tarefas e ferramentas de computação distribuída."
+  ]
+}
