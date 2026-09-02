@@ -33,10 +33,10 @@ const researchAreas = [
 
 const projects = [
   {
-    category: "MACHINE LEARNING",
-    title: "Inteligência Artificial aplicada à Bioinformática",
+    category: "Robótica e Automação",
+    title: "Automação Industrial com Sensores Embarcados",
     description:
-      "Desenvolvimento de modelos computacionais para compreender e predizer fenômenos relacionados à estrutura e dinâmica molecular.",
+      "Estudos e experimentação de técnicas embarcadas de alta precisão para conferência e análise de linhas de produção.",
     year: "2026",
   },
   {
@@ -91,42 +91,42 @@ export default function Home() {
 
           <nav className="hidden items-center gap-8 lg:flex">
             <a
-              href="#pesquisa"
+              href="/pesquisa"
               className="text-[12px] font-bold uppercase tracking-[0.12em] transition-opacity hover:opacity-50"
             >
               Pesquisa
             </a>
 
             <a
-              href="#projetos"
+              href="/projetos"
               className="text-[12px] font-bold uppercase tracking-[0.12em] transition-opacity hover:opacity-50"
             >
               Projetos
             </a>
 
             <a
-              href="#pessoas"
+              href="/membros"
               className="text-[12px] font-bold uppercase tracking-[0.12em] transition-opacity hover:opacity-50"
             >
               Pessoas
             </a>
 
             <a
-              href="#publicacoes"
+              href="/publicacoes"
               className="text-[12px] font-bold uppercase tracking-[0.12em] transition-opacity hover:opacity-50"
             >
               Publicações
             </a>
 
             <a
-              href="#noticias"
+              href="/noticias"
               className="text-[12px] font-bold uppercase tracking-[0.12em] transition-opacity hover:opacity-50"
             >
               Notícias
             </a>
 
             <a
-              href="#contato"
+              href="/contato"
               className="border border-black px-5 py-3 text-[11px] font-bold uppercase tracking-[0.12em] transition-all hover:bg-black hover:text-white"
             >
               Contato
@@ -221,15 +221,14 @@ export default function Home() {
             <div className="mt-10 flex flex-col gap-5 sm:flex-row">
               <a
                 href="#pesquisa"
-                className="inline-flex items-center justify-center bg-black px-7 py-4 text-[11px] font-bold uppercase tracking-[0.16em] text-white transition-all hover:bg-[#222]"
+                className="inline-flex items-center justify-center bg-black px-7 py-4 text-[14px] font-bold uppercase tracking-[0.16em] text-white transition-all hover:bg-[#222]"
               >
                 Conheça nossa pesquisa
-                <span className="ml-8 text-lg">↗</span>
               </a>
 
               <a
                 href="#projetos"
-                className="inline-flex items-center justify-center border border-black px-7 py-4 text-[11px] font-bold uppercase tracking-[0.16em] transition-all hover:bg-black hover:text-white"
+                className="inline-flex items-center justify-center border border-black px-7 py-4 text-[14px] font-bold uppercase tracking-[0.16em] transition-all hover:bg-black hover:text-white"
               >
                 Ver projetos
               </a>
@@ -403,7 +402,7 @@ export default function Home() {
               </div>
 
               <div className="absolute bottom-6 left-6 right-6 flex justify-between text-[9px] font-bold uppercase tracking-[0.2em] text-white/40">
-                <span>Computational biology</span>
+                <span>Cluster Computacional</span>
                 <span>2026</span>
               </div>
             </div>
@@ -413,17 +412,17 @@ export default function Home() {
             <div className="flex flex-col justify-between">
               <div>
                 <div className="mb-6 text-[10px] font-bold uppercase tracking-[0.2em] text-black/40">
-                  Machine Learning × Bioinformática
+                  Machine Learning × HPC
                 </div>
 
                 <h2 className="max-w-2xl text-4xl font-black leading-[0.95] tracking-[-0.06em] md:text-6xl">
-                  Predição computacional de fenômenos estruturais.
+                  Utilização de Infraestrutura de Alto Desempenho para IA
                 </h2>
 
                 <p className="mt-8 max-w-xl text-base leading-relaxed text-black/60">
-                  Utilizamos aprendizado de máquina, dinâmica molecular e
-                  descritores estruturais para investigar relações entre
-                  alterações moleculares e comportamento estrutural.
+                  Utilizamos um cluster desenvolvido pelo Laboratório
+                  com o propósito de acelerar as pesquisas de Machine
+                  Learning e Redes Neurais aplicadas.
                 </p>
               </div>
 
@@ -437,9 +436,9 @@ export default function Home() {
                   </div>
 
                   <div>
-                    <div className="text-3xl font-black">MD</div>
+                    <div className="text-3xl font-black">HPC</div>
                     <div className="mt-1 text-[9px] font-bold uppercase tracking-[0.15em] text-black/40">
-                      Molecular Dynamics
+                      High-Performance Computing
                     </div>
                   </div>
                 </div>
@@ -565,17 +564,18 @@ export default function Home() {
 
               <div className="mt-14 border-t border-white/15">
                 <div className="flex items-center justify-between border-b border-white/15 py-6">
-                  <span className="text-sm font-bold">Pesquisadores</span>
+                  <a
+                  href="/membros/professores" 
+                  className="text-sm font-bold">Professores
+                  </a>                  
                   <span className="text-2xl">→</span>
                 </div>
 
                 <div className="flex items-center justify-between border-b border-white/15 py-6">
-                  <span className="text-sm font-bold">Estudantes</span>
-                  <span className="text-2xl">→</span>
-                </div>
-
-                <div className="flex items-center justify-between border-b border-white/15 py-6">
-                  <span className="text-sm font-bold">Colaboradores</span>
+                  <a
+                  href="/membros/estudantes" 
+                  className="text-sm font-bold">Estudantes
+                  </a>                  
                   <span className="text-2xl">→</span>
                 </div>
               </div>
@@ -656,14 +656,14 @@ export default function Home() {
               <br />
               juntos.
             </h2>
-
-            <a
-              href="mailto:laboratorio@liralab.com.br"
-              className="mt-12 inline-flex items-center border border-white/30 px-7 py-4 text-[11px] font-bold uppercase tracking-[0.15em] transition-all hover:bg-white hover:text-black"
+            <h3 className="mt-10 text-2xl font-black leading-[0.85] tracking-[-0.08em]">
+              Entre em Contato Conosco!
+            </h3>
+            <p
+              className="mt-4 inline-flex items-center border border-white/30 px-7 py-4 text-[16px] font-bold uppercase tracking-[0.15em] transition-all hover:bg-white hover:text-black"
             >
-              Entre em contato
-              <span className="ml-8 text-lg">↗</span>
-            </a>
+              laboratorio@liralab.com.br
+            </p>
           </div>
         </div>
       </section>
