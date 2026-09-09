@@ -10,6 +10,8 @@ import NewsArticlePage from "./pages/NewsArticlePage";
 import NewsPage from "./pages/NewsPage";
 import ProfessorsPage from "./pages/ProfessorsPage";
 import StudentsPage from "./pages/StudentsPage";
+import AdminLoginPage from "./pages/admin/AdminLoginPage";
+import AdminDashboardPage from "./pages/admin/AdminDashboardPage";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
@@ -22,6 +24,8 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         <Route path="*" element={<UnderConstruction />} />
         <Route path="/membros/professores" element={<ProfessorsPage />} />
         <Route path="/membros/estudantes" element={<StudentsPage />} />
+        <Route path="/admin/*" element={<AdminLoginPage />} />
+        <Route path="/admin/dashboard" element={<AdminDashboardPage />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
