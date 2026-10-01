@@ -1,0 +1,12 @@
+{
+  "title": "Essa semana no LIRA – 01/10/2026",
+  "date": "2026-10-01",
+  "placeholder": "/novidade.png",
+  "abstract": "Atualizacoes do cluster, estudo de motores e CNN usando WebCam",
+  "content": [
+    "Olá, leitores do LIRA! Tivemos uma semana produtiva e estamos aqui para manter vocês atualizados!",
+    "Nosso cluster recebeu diversas atualizações essa semana. Inicialmente, nós decidimos começar organizando o hack e os fios, para podermos identificar problemas e conseguir manusear entre os PCs com mais facilidade. A principal mudança foi a instalação do Slurm, que eh o responsável por organizar e gerenciar as filas de espera entre os nós. Também já estamos sendo capazes de fazer comunicação entre o Main e os nós, um grande avanço! Caso queria saber mais detalhes sobre nosso cluster e seu andamento, use a ferramenta de busca e pesquise por ¨Cluster¨.",
+
+    ""
+    ]
+}
