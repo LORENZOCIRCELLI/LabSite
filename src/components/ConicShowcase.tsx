@@ -46,7 +46,7 @@ export default function ConicShowcase() {
         </div>
 
         <div className="section-heading conic-work-heading"><div><p className="eyebrow">Acervo do encontro</p><h3 id="conic-works-title">Conheça os trabalhos</h3></div><div className="conic-carousel-controls" role="group" aria-label="Navegar pelos trabalhos"><button type="button" onClick={() => move(-1)} disabled={!canGoBack} aria-controls="conic-works">Anterior</button><button type="button" onClick={() => move(1)} disabled={!canGoForward} aria-controls="conic-works">Próximo</button></div></div>
-        <p className="conic-gallery-note" id="conic-help">Deslize para explorar os pôsteres. Selecione uma prévia para ampliar ou abra o PDF completo. Os espaços provisórios estão identificados.</p>
+        <p className="conic-gallery-note" id="conic-help">Deslize para explorar os pôsteres. Selecione uma prévia para ampliar ou abra o PDF completo.</p>
         <div id="conic-works" className="conic-carousel" ref={track} onScroll={updateScrollButtons} role="region" aria-labelledby="conic-works-title" aria-describedby="conic-help" tabIndex={0}>
           {conicWorks.map((work, index) => (
             <article className={`conic-work-card ${work.placeholder ? "is-placeholder" : ""}`} key={work.id} aria-labelledby={`conic-work-${work.id}`}>
@@ -56,7 +56,7 @@ export default function ConicShowcase() {
             </article>
           ))}
         </div>
-        <p className="conic-archive-caption technical-label">Pôsteres enviados por Lorenzo e Hugo · Acervo em atualização</p>
+        <p className="conic-archive-caption technical-label">Quatro pôsteres · Acervo do CONIC 2026</p>
       </div>
 
       <dialog ref={dialog} className="conic-poster-dialog" aria-labelledby="conic-dialog-title" onClose={() => setActiveWork(null)} onClick={(event) => { if (event.target === event.currentTarget) dialog.current?.close(); }}>
