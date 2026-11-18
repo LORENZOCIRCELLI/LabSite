@@ -17,7 +17,7 @@ const projects = [
   { category: "HPC", title: "Computação de alto desempenho", description: "Pesquisa em arquiteturas paralelas, processamento acelerado e aplicações científicas de alto desempenho." },
 ];
 const navigation = [
-  ["Pesquisa", "/pesquisa"], ["Projetos", "/projetos"], ["Pessoas", "/membros"],
+  ["Pesquisa", "/pesquisa"], ["Projetos", "/projetos"], ["Pessoas", "#grupo"],
   ["Publicações", "/publicacoes"], ["Notícias", "/noticias"], ["Eventos 2027", "#eventos"], ["Contato", "/contato"],
 ];
 
@@ -74,11 +74,6 @@ export default function Home() {
         <div className="project-grid">{projects.map((project) => <article key={project.title}><p className="technical-label">{project.category} / 2026</p><h3>{project.title}</h3><p>{project.description}</p></article>)}</div>
       </section>
 
-      <section id="pessoas" className="people-section lab-container section-space">
-        <div><p className="eyebrow">Quem faz o LIRA</p><h2>A pesquisa se faz<br />em conjunto.</h2></div>
-        <div><p className="people-description">Professores, estudantes e pesquisadores com diferentes interesses, compartilhando perguntas, métodos e uma bancada de trabalho.</p><div className="people-links"><a href="/membros/professores">Professores</a><a href="/membros/estudantes">Estudantes</a></div></div>
-      </section>
-
       <section id="publicacoes" className="lab-container section-space publications-section">
         <div className="section-heading"><div><p className="eyebrow">Produção científica</p><h2>Publicações</h2></div><p>Conhecimento desenvolvido e compartilhado pelo grupo.</p></div>
         {[
@@ -92,7 +87,7 @@ export default function Home() {
 
       <footer id="contato" className="lab-footer"><div className="lab-container">
         <div className="footer-contact"><div><p className="eyebrow">Contato</p><h2>Uma conversa pode ser<br />o próximo começo.</h2></div><div><p>Entre em contato com o laboratório</p><p className="contact-address">laboratorio@liralab.com.br</p></div></div>
-        <div className="footer-bottom"><div><strong>LIRA</strong><p>Laboratório de Inteligência Artificial,<br />Robótica e Automação</p></div><div><p>Universidade de Ribeirão Preto — UNAERP<br />Ribeirão Preto, São Paulo · Brasil</p></div><nav aria-label="Navegação do rodapé"><a href="#pesquisa">Pesquisa</a><a href="#projetos">Projetos</a><a href="#pessoas">Pessoas</a><a href="#publicacoes">Publicações</a><a href="#noticias">Notícias</a><a href="#eventos">Eventos 2027</a><a href="#conic2026">CONIC 2026</a></nav><span className="technical-label">© 2026 LIRA</span></div>
+        <div className="footer-bottom"><div><strong>LIRA</strong><p>Laboratório de Inteligência Artificial,<br />Robótica e Automação</p></div><div><p>Universidade de Ribeirão Preto — UNAERP<br />Ribeirão Preto, São Paulo · Brasil</p></div><nav aria-label="Navegação do rodapé"><a href="#pesquisa">Pesquisa</a><a href="#projetos">Projetos</a><a href="#grupo">Pessoas</a><a href="#publicacoes">Publicações</a><a href="#noticias">Notícias</a><a href="#eventos">Eventos 2027</a><a href="#conic2026">CONIC 2026</a></nav><span className="technical-label">© 2026 LIRA</span></div>
       </div></footer>
     </main>
   );

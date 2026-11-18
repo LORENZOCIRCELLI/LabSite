@@ -14,12 +14,44 @@ export interface AcademicEvent {
   sourceLabel: string;
   announcement?: string;
   notice?: string;
+  featureLabel?: string;
 }
 
 // Dates and prices are editorial records, not live registration availability.
 // Keep the reference year explicit when a 2027 edition has not been announced.
 export const eventsReviewedAt = "18/11/2026";
 export const academicEvents: AcademicEvent[] = [
+  {
+    id: "conic",
+    name: "CONIC UNAERP",
+    featureLabel: "Nosso congresso · UNAERP",
+    fullName: "Congresso de Iniciação Científica e Pesquisa",
+    area: "Iniciação científica",
+    confirmed: false,
+    date: "2027 · calendário a divulgar",
+    place: "Referência 2026: Ribeirão Preto · SP",
+    cost: "Taxas de 2027 a divulgar",
+    costNote: "Prioridade local: pode reduzir gastos de deslocamento para quem estuda em Ribeirão Preto. Consulte as condições para ouvintes e autores.",
+    why: "Dar o primeiro passo na apresentação de pesquisa, organizar resultados de iniciação científica e conversar com pesquisadores da própria universidade.",
+    participation: "Em 2026, recebeu painéis e apresentações orais; a modalidade oral era destinada a graduandos em iniciação científica.",
+    source: "https://lp.unaerp.br/conic/",
+    sourceLabel: "Evento e normas · referência 2026",
+  },
+  {
+    id: "siicusp",
+    name: "SIICUSP",
+    fullName: "Simpósio Internacional de Iniciação Científica e Tecnológica da USP",
+    area: "Iniciação científica",
+    confirmed: false,
+    date: "2027 · calendário a divulgar",
+    place: "USP · unidade conforme a área do trabalho",
+    cost: "2026: inscrição gratuita",
+    costNote: "Gratuidade de 2027 ainda não confirmada. A unidade de apresentação define os custos de deslocamento.",
+    why: "Apresentar uma pesquisa de graduação, receber comentários sobre o trabalho e conhecer projetos de outros grupos.",
+    participation: "A edição de 2026 admitiu graduandos da USP e de outras instituições, com inscrição validada pelo orientador. Aguarde as normas de 2027.",
+    source: "https://www.ime.usp.br/siicusp/",
+    sourceLabel: "Normas oficiais · referência 2026",
+  },
   {
     id: "verao-icmc",
     name: "Verão no ICMC",
@@ -51,36 +83,6 @@ export const academicEvents: AcademicEvent[] = [
     source: "https://ra.sbpcnet.org.br/78RA/",
     sourceLabel: "Referência de participação · 2026",
     announcement: "https://portal.sbpcnet.org.br/eventos/tipo/reunioes-anuais/",
-  },
-  {
-    id: "conic",
-    name: "CONIC UNAERP",
-    fullName: "Congresso de Iniciação Científica e Pesquisa",
-    area: "Iniciação científica",
-    confirmed: false,
-    date: "2027 · calendário a divulgar",
-    place: "Referência 2026: Ribeirão Preto · SP",
-    cost: "Taxas de 2027 a divulgar",
-    costNote: "Prioridade local: pode reduzir gastos de deslocamento para quem estuda em Ribeirão Preto. Consulte as condições para ouvintes e autores.",
-    why: "Dar o primeiro passo na apresentação de pesquisa, organizar resultados de iniciação científica e conversar com pesquisadores da própria universidade.",
-    participation: "Em 2026, recebeu painéis e apresentações orais; a modalidade oral era destinada a graduandos em iniciação científica.",
-    source: "https://lp.unaerp.br/conic/",
-    sourceLabel: "Evento e normas · referência 2026",
-  },
-  {
-    id: "siicusp",
-    name: "SIICUSP",
-    fullName: "Simpósio Internacional de Iniciação Científica e Tecnológica da USP",
-    area: "Iniciação científica",
-    confirmed: false,
-    date: "2027 · calendário a divulgar",
-    place: "USP · unidade conforme a área do trabalho",
-    cost: "2026: inscrição gratuita",
-    costNote: "Gratuidade de 2027 ainda não confirmada. A unidade de apresentação define os custos de deslocamento.",
-    why: "Apresentar uma pesquisa de graduação, receber comentários sobre o trabalho e conhecer projetos de outros grupos.",
-    participation: "A edição de 2026 admitiu graduandos da USP e de outras instituições, com inscrição validada pelo orientador. Aguarde as normas de 2027.",
-    source: "https://www.ime.usp.br/siicusp/",
-    sourceLabel: "Normas oficiais · referência 2026",
   },
   {
     id: "erad-sp",
