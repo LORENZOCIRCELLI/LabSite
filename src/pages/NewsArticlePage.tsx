@@ -1,3 +1,4 @@
+import "./Editorial.css";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import BlockRenderer from "../components/BlockRenderer";
@@ -25,15 +26,15 @@ export default function NewsArticlePage() {
     meta.setAttribute("content", description);
   }, [article]);
 
-  if (loading) return <main className="flex min-h-[70vh] items-center justify-center text-gray-500">Carregando matéria…</main>;
-  if (error || !article) return <main className="flex min-h-[70vh] items-center justify-center px-6"><div className="text-center"><h1 className="text-3xl font-bold text-gray-900">Notícia não encontrada</h1><p className="mt-3 text-gray-600">{error}</p><Link to="/noticias" className="mt-8 inline-flex bg-[#101b3d] px-6 py-3 font-medium text-white">← Todas as notícias</Link></div></main>;
+  if (loading) return <main className="editorial-page flex min-h-[70vh] items-center justify-center text-gray-500">Carregando matéria…</main>;
+  if (error || !article) return <main className="editorial-page flex min-h-[70vh] items-center justify-center px-6"><div className="text-center"><h1 className="text-3xl font-bold text-gray-900">Notícia não encontrada</h1><p className="mt-3 text-gray-600">{error}</p><Link to="/noticias" className="mt-8 inline-flex bg-[#101b3d] px-6 py-3 font-medium text-white">Todas as notícias</Link></div></main>;
 
   return (
-    <main className="bg-white">
+    <main className="editorial-page bg-white">
       <article>
         <header className="border-b border-gray-200 bg-[#f7f7f5]">
           <div className="mx-auto max-w-4xl px-6 py-16 mb">
-            <Link to="/noticias" className="mb-10 inline-flex text-sm font-medium text-gray-500 transition hover:text-[#b6202a]">← Todas as notícias</Link>
+            <Link to="/noticias" className="mb-10 inline-flex text-sm font-medium text-gray-500 transition hover:text-[#b6202a]">Todas as notícias</Link>
             <div className="flex flex-wrap items-center gap-3 text-sm font-semibold text-[#b6202a]"><time>{formatNewsDate(article.published_at)}</time>{article.category && <><span>•</span><span>{article.category.name}</span></>}</div>
             <h1 className="mt-5 text-4xl font-black leading-tight tracking-tight text-[#101b3d] md:text-6xl">{article.title}</h1>
             <p className="mt-6 text-xl leading-relaxed text-gray-600">{article.subtitle}</p>

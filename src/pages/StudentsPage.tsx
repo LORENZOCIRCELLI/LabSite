@@ -1,9 +1,10 @@
+import "./Editorial.css";
 import MemberCard from "../components/MemberCard";
 import { students } from "../lib/members";
 import { Link } from "react-router-dom";
 export default function StudentsPage() {
   return (
-    <main className="min-h-screen bg-gray-50">
+    <main className="editorial-page min-h-screen bg-gray-50">
       <section className="mx-auto max-w-7xl px-6 py-16">
                 <Link
           to="/"
@@ -18,7 +19,7 @@ export default function StudentsPage() {
             hover:text-blue-600
           "
         >
-          ← Página Inicial
+          Página inicial
         </Link>
         <header className="mb-12">
           <p className="text-sm font-semibold uppercase tracking-wider text-blue-600">

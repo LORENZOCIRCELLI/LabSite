@@ -1,8 +1,9 @@
+import "./Editorial.css";
 import { Link } from "react-router-dom";
 
 export default function UnderConstruction() {
   return (
-    <main className="min-h-[70vh] flex items-center justify-center px-6">
+    <main className="editorial-page min-h-[70vh] flex items-center justify-center px-6">
       <div className="text-center max-w-md">
         <div className="text-7xl mb-6">
           🚧
@@ -20,7 +21,7 @@ export default function UnderConstruction() {
           to="/"
           className="mt-8 inline-flex items-center rounded-lg bg-blue-600 px-6 py-3 font-medium text-white transition hover:bg-blue-700"
         >
-          ← Voltar para a Home
+          Voltar para o início
         </Link>
       </div>
     </main>

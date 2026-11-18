@@ -1,3 +1,4 @@
+import "./Editorial.css";
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import NewsCard from "../components/NewsCard";
@@ -28,9 +29,9 @@ export default function NewsPage() {
   }, [news, search]);
 
   return (
-    <main className="min-h-screen bg-gray-50">
+    <main className="editorial-page min-h-screen bg-gray-50">
       <section className="mx-auto max-w-7xl px-6 py-16">
-        <Link to="/" className="mb-10 inline-flex text-sm font-medium text-gray-500 transition hover:text-blue-600">← Página inicial</Link>
+        <Link to="/" className="mb-10 inline-flex text-sm font-medium text-gray-500 transition hover:text-blue-600">Página inicial</Link>
         <header className="mb-10">
           <p className="text-sm font-semibold uppercase tracking-wider text-[#b6202a]">LIRA</p>
           <h1 className="mt-2 text-4xl font-black tracking-tight text-[#101b3d] md:text-6xl">Notícias</h1>

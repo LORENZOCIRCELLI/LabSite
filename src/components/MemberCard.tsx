@@ -10,6 +10,7 @@ export default function MemberCard({
   return (
     <article
       className="
+        member-card
         group
         overflow-hidden
         rounded-2xl
